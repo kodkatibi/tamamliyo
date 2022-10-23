@@ -5,32 +5,33 @@ namespace App\Repositories;
 use App\Interfaces\CustomerRepositoryInterface;
 use App\Models\Customer;
 
-class CustomerRepository implements  CustomerRepositoryInterface
+class CustomerRepository implements CustomerRepositoryInterface
 {
+    protected Customer $customer;
 
-    public function getAllCustomers()
+    public function getAllCustomers(): \Illuminate\Database\Eloquent\Collection
     {
-        // TODO: Implement getAllCustomers() method.
+        return $this->customer->all();
     }
 
     public function getCustomerByTckn(int $tckn)
     {
-        // TODO: Implement getCustomerByTckn() method.
+        return $this->customer->byTckn($tckn);
     }
 
-    public function createCustomer(Customer $customer)
+    public function createCustomer(Customer|array $customer)
     {
-        // TODO: Implement createCustomer() method.
+        return $this->customer->create($customer);
     }
 
-    public function updateCustomer(int $id, Customer $customer)
+    public function updateCustomer(int $id, Customer|array $customer)
     {
-        // TODO: Implement updateCustomer() method.
+        return $this->customer->find($id)->update($customer);
     }
 
-    public function updateCustomerByTckn(int $tckn, Customer $customer)
+    public function updateCustomerByTckn(int $tckn, Customer|array $customer)
     {
-        // TODO: Implement updateCustomerByTckn() method.
+        return $this->customer->where('tckn')->update($customer);
     }
 
     public function deleteCustomer(int $id)

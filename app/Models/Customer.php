@@ -13,4 +13,10 @@ class Customer extends Model
     {
         return $this->hasMany(InsurancePolicy::class);
     }
+
+    public function byTckn(int $tckn): Model|\Illuminate\Database\Eloquent\Builder
+    {
+        return self::query()->where(['tckn' => $tckn])->firstOrFail();
+    }
+
 }

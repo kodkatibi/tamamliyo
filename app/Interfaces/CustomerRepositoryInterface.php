@@ -10,11 +10,11 @@ interface CustomerRepositoryInterface
 
     public function getCustomerByTckn(int $tckn);
 
-    public function createCustomer(Customer $customer);
+    public function createCustomer(array $customer);
 
-    public function updateCustomer(int $id, Customer $customer);
+    public function updateCustomer(int $id, array $customer);
 
-    public function updateCustomerByTckn(int $tckn, Customer $customer);
+    public function updateCustomerByTckn(int $tckn, array $customer);
 
     public function deleteCustomer(int $id);
 

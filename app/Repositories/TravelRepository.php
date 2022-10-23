@@ -15,7 +15,7 @@ class TravelRepository implements TravelRepositoryInterface
         $this->sigortaRepository = $sigortaRepository;
     }
 
-    public function createInsurance(array $data)
+    public function createInsurance(array $data): \CodeDredd\Soap\Client\Response
     {
         return $this->sigortaRepository->connect($this->soapType, $data);
     }
