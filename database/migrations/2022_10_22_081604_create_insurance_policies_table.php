@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('name');
             $table->dateTime('start_at')->useCurrent();
             $table->dateTime('end_at');
+            $table->float('price')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });
